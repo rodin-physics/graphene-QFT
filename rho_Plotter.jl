@@ -1,13 +1,13 @@
 include("Lib/general.jl")
 
-A_Lattice = readdlm("Data/Density/rho_mu_04_Dop2_A.txt")
-B_Lattice = readdlm("Data/Density/rho_mu_04_Dop2_B.txt")
+A_Lattice = readdlm("Data/Density/rho_mu_04_Dop2_A.dat")
+B_Lattice = readdlm("Data/Density/rho_mu_04_Dop2_B.dat")
 
 data = Data_Process(A_Lattice, B_Lattice)
 
-XS = [data[1][1, :] data[2][1, :]]
-YS = [data[1][2, :] data[2][2, :]]
-ρ = [data[1][3, :] data[2][3, :]]
+XS = data[:, 1]
+YS = data[:, 2]
+ρ = data[:, 3]
 
 ρ = ρ * 1e4;
 
@@ -22,8 +22,6 @@ scatter(XS,YS,
         markersize = 2.5,
         leg = false,
         aspect_ratio = 1,
-        # xaxis = (L"\AA", font(20, "Serif")),
-        # yaxis = (L"\AA", font(20, "Serif")),
         xtickfont = font(12, "Serif"),
         ytickfont = font(12, "Serif"),
         ylims = (-60,60),
@@ -36,5 +34,6 @@ scatter(XS,YS,
         )
 println("Plot Done")
 savefig("Test.pdf")
-# savefig("rho_mu_04_Dop2.pdf")
 println("Plot Saved")
+
+data

@@ -23,5 +23,5 @@ end
 resA = pmap(f_A_Sublattice, D1S, D2S)
 resB = pmap(f_B_Sublattice, D1S, D2S)
 
-writedlm("Data/Density/rho_mu_04_Dop2_A.txt", resA)
-writedlm("Data/Density/rho_mu_04_Dop2_B.txt", resB)
+writedlm("Data/Density/rho_mu_04_Dop2_A.dat", resA)
+writedlm("Data/Density/rho_mu_04_Dop2_B.dat", resB)
